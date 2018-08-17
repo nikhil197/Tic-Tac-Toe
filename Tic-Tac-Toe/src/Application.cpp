@@ -50,10 +50,10 @@ int main()
 
 			std::cout << "\t" + game->getCurrentPlayer()->m_Name + "\'s turn" << std::endl;
 
+			std::cout << std::endl;
+
 			//Complete the current player's move
 			game->getCurrentPlayer()->performAction();
-
-			std::cout << std::endl;
 
 			//Display the game board
 			game->displayGameBoard();
@@ -62,7 +62,7 @@ int main()
 			if (game->hasWon())
 				std::cout << "\t Game Over !!!! " + game->getCurrentPlayer()->m_Name + " won the game. " << std::endl;
 
-			std::cout << std::endl << std::endl;
+			std::cout << std::endl;
 
 			game->changeCurrentPlayer();
 

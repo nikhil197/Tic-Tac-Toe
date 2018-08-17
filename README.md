@@ -9,3 +9,4 @@ A Simple Tic-Tac-Toe game
 2. Second Version 
   - Added Two Player Support
   - Redesign the game implementation
+  - Made changes to the interface

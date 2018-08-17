@@ -27,8 +27,6 @@ void Board::display()
 			std::cout << row->at(j) << " ";
 		std::cout << std::endl;
 	}
-
-	std::cout << std::endl;
 }
 
 const char Board::getCellValue(int row, int column) const

@@ -66,6 +66,10 @@ public:
 	//Get the player whose turn turn it is
 	const Character* getCurrentPlayer() const { return currentPlayer; };
 
+	//Display the current board
 	void displayGameBoard() const;
+
+	//Remove the assignment operator
+	Game operator=(const Game&) = delete;
 };
 
