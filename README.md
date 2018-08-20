@@ -10,3 +10,8 @@ A Simple Tic-Tac-Toe game
   - Added Two Player Support
   - Redesign the game implementation
   - Made changes to the interface
+  
+3. Third Version
+  - Added AI for the Bot
+  - Made some changes to the game design
+  - Added more options in the menu for the user

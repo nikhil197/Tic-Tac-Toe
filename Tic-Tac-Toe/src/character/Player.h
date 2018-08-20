@@ -6,7 +6,7 @@ class Player :
 	public Character
 {
 public:
-	Player(std::string name, char symbol, Board& board);
+	Player(std::string name, char symbol, char oppSymbol, Board& board);
 	
 	~Player();
 

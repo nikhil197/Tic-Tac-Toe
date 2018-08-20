@@ -10,13 +10,13 @@ Game::Game(GameType gameType)
 
 	if (m_gameType == SINGLE_PLAYER)
 	{
-		player1 = new Bot("Bot", 'X', *board);
-		player2 = new Player("Player", 'O', *board);
+		player1 = new Bot("Bot", 'X', 'O', *board);
+		player2 = new Player("Player", 'O', 'X', *board);
 	}
 	else
 	{
-		player1 = new Player("Player 1", 'X', *board);
-		player2 = new Player("Player 2", 'O', *board);
+		player1 = new Player("Player 1", 'X', 'O', *board);
+		player2 = new Player("Player 2", 'O', 'X', *board);
 	}
 
 	currentPlayer = player1;
@@ -46,7 +46,7 @@ bool Game::hasWon()
 
 bool Game::hasWon(const char symbol)
 {
-	return isOver = board->checkThreeConsecutive(symbol);
+	return isOver = board->checkWinCondition(symbol);
 }
 
 bool Game::hasWon(const Character *player)
@@ -58,6 +58,9 @@ void Game::restartGame()
 {
 	//Reset the board
 	board->reset();
+
+	currentPlayer = player1;
+	isPlayer1Turn = true;
 
 	isOver = false;
 }

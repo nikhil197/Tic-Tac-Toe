@@ -49,7 +49,7 @@ bool Board::isMovePossible() const
 	return false;
 }
 
-bool Board::checkThreeConsecutive(const char symbol) const
+bool Board::checkWinCondition(const char symbol) const
 {
 	//Check rows
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -70,6 +70,15 @@ bool Board::checkThreeConsecutive(const char symbol) const
 
 	//If no row / column / diagonal has the same character in all three places
 	return false;
+}
+
+bool Board::isEmpty() const
+{
+	for (int i = 0; i < BOARD_SIZE; i++)
+		for (int j = 0; j < BOARD_SIZE; j++)
+			if (board->at(i).at(j) != '-')
+				return false;
+	return true;
 }
 
 bool Board::isEmpty(int row, int column) const

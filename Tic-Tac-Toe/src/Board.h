@@ -10,7 +10,7 @@ private:
 
 public:
 	//Board size
-	static const int BOARD_SIZE = 3;
+	const int BOARD_SIZE = 3;
 	
 	Board();
 
@@ -26,13 +26,16 @@ public:
 	bool isMovePossible() const;
 
 	//Check if the board has three 'symbols' in a row or a column or a diagonal
-	bool checkThreeConsecutive(const char symbol) const;
+	bool checkWinCondition(const char symbol) const;
 
-	//To get the char at row - 1 and column - 1 indices on the board
+	//To get the char at row and column indices on the board
 	const char getCellValue(int row, int column) const;
 
-	//To set symbol at row - 1 and column -1 indices on the board
+	//To set symbol at row and column indices on the board
 	void setCellValue(int row, int column, char symbol);
+
+	//To check if the board is empty or not
+	bool isEmpty() const;
 
 	//To check if the specified cell is empty on the board
 	bool isEmpty(int row, int column) const;

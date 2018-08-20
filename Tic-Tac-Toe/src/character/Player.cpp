@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-Player::Player(std::string name, char symbol, Board& board)
-	:Character(name, symbol, board)
+Player::Player(std::string name, char symbol, char oppSymbol, Board& board)
+	:Character(name, symbol, oppSymbol, board)
 {
 }
 
