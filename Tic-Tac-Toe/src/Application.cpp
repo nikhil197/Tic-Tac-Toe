@@ -47,34 +47,34 @@ int main()
 			continue;
 		}
 
-		while (!game->isGameOver())
+		while (!game->IsGameOver())
 		{
-			if (game->checkDraw())
-			{
-				LOG("\tGame was a draw");
-				break;
-			}
-
-			LOG("\t" + game->getCurrentPlayer()->m_Name + "\'s turn");
+			LOG("\t" + game->GetCurrentPlayer()->m_Name + "\'s turn");
 
 			std::cout << std::endl;
 
 			//Complete the current player's move
-			game->getCurrentPlayer()->performAction();
+			game->GetCurrentPlayer()->PerformAction();
 
 			//Display the game board
-			game->displayGameBoard();
+			game->DisplayGameBoard();
 
 			//Check if the current player has won
-			if (game->hasWon())
-				LOG("\t Game Over !!!! " + game->getCurrentPlayer()->m_Name + " won the game. ");
+			if (game->HasWon())
+			{
+				LOG("\t Game Over !!!! " + game->GetCurrentPlayer()->m_Name + " won the game. ");
+			}
+			else if (game->CheckDraw())
+			{
+				LOG("\tGame was a draw");
+			}
 
 			std::cout << std::endl;
 
-			game->changeCurrentPlayer();
+			game->ChangeCurrentPlayer();
 
 			//Ask the user if he wants to quit 
-			if (game->isGameOver())
+			if (game->IsGameOver())
 			{
 				//clear the input buffer
 				std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
@@ -88,7 +88,7 @@ int main()
 				if (endChoice == 'R' || endChoice == 'r')
 				{
 					LOG("\t Restarting the current game.");
-					game->restartGame();
+					game->RestartGame();
 					Sleep(2000);
 					system("CLS");
 				}

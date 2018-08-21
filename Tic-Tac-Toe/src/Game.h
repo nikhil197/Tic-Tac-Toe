@@ -40,34 +40,34 @@ public:
 	~Game();
 
 	//Returns Whether a move is possible or not
-	bool isMovePossible() const;
+	bool IsMovePossible() const;
 
 	//Returns Whether the game is over or not
-	bool isGameOver() const { return isOver; }
+	bool IsGameOver() const { return isOver; }
 
 	//Returns whether the game is drawn
-	bool checkDraw();
+	bool CheckDraw();
 
 	//Returns whether the current player has won
-	bool hasWon();
+	bool HasWon();
 
 	//Returns whether player with 'symbol' has won
-	bool hasWon(const char symbol);
+	bool HasWon(const char symbol);
 
 	//Returns whether the player has won
-	bool hasWon(const Character *player);
+	bool HasWon(const Character *player);
 
 	//Restart the game
-	void restartGame();
+	void RestartGame();
 
 	//Change the player whose turn it is
-	void changeCurrentPlayer();
+	void ChangeCurrentPlayer();
 
 	//Get the player whose turn turn it is
-	const Character* getCurrentPlayer() const { return currentPlayer; };
+	const Character* GetCurrentPlayer() const { return currentPlayer; };
 
 	//Display the current board
-	void displayGameBoard() const;
+	void DisplayGameBoard() const;
 
 	//Remove the assignment operator
 	Game operator=(const Game&) = delete;

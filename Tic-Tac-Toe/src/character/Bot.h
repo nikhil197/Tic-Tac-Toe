@@ -11,15 +11,15 @@ public:
 	~Bot();
 
 	//To perform the Action of a bot
-	void performAction() const override;
+	void PerformAction() const override;
 
 private:
 	const int rewardValue = 10;
 
 	//Evaluate the given board state to find the next optimal move
-	int evaluationFunction() const;
+	int EvaluationFunction() const;
 
 	//Get the next optimal move
-	std::pair<int, int> getNextOptimalMove(int moves, bool botsTurn, int& value) const;
+	std::pair<int, int> GetNextOptimalMove(int moves, bool botsTurn, int& value) const;
 };
 

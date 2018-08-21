@@ -7,7 +7,7 @@ Board::Board()
 	board = new std::vector<std::vector<char>>(BOARD_SIZE, std::vector<char>(BOARD_SIZE, '-'));
 }
 
-void Board::reset()
+void Board::Reset()
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
@@ -17,7 +17,7 @@ void Board::reset()
 	}
 }
 
-void Board::display()
+void Board::Display()
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
 	{
@@ -29,17 +29,17 @@ void Board::display()
 	}
 }
 
-const char Board::getCellValue(int row, int column) const
+const char Board::GetCellValue(int row, int column) const
 {
 	return (*board)[row][column];
 }
 
-void Board::setCellValue(int row, int column, char symbol)
+void Board::SetCellValue(int row, int column, char symbol)
 {
 	board->at(row).at(column) = symbol;
 }
 
-bool Board::isMovePossible() const
+bool Board::IsMovePossible() const
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -49,7 +49,7 @@ bool Board::isMovePossible() const
 	return false;
 }
 
-bool Board::checkWinCondition(const char symbol) const
+bool Board::CheckWinCondition(const char symbol) const
 {
 	//Check rows
 	for (int i = 0; i < BOARD_SIZE; i++)
@@ -72,7 +72,7 @@ bool Board::checkWinCondition(const char symbol) const
 	return false;
 }
 
-bool Board::isEmpty() const
+bool Board::IsEmpty() const
 {
 	for (int i = 0; i < BOARD_SIZE; i++)
 		for (int j = 0; j < BOARD_SIZE; j++)
@@ -81,7 +81,7 @@ bool Board::isEmpty() const
 	return true;
 }
 
-bool Board::isEmpty(int row, int column) const
+bool Board::IsEmpty(int row, int column) const
 {
 	return board->at(row).at(column) == '-' ? true : false;
 }

@@ -11,7 +11,7 @@ Player::~Player()
 {
 }
 
-void Player::performAction() const
+void Player::PerformAction() const
 {
 	int row, column;
 	bool isCorrectInput = false;
@@ -24,11 +24,11 @@ void Player::performAction() const
 		std::cout << "\tEnter the column: ";
 		std::cin >> column;
 
-		if (!playBoard.isEmpty(row - 1, column - 1))
+		if (!playBoard.IsEmpty(row - 1, column - 1))
 			std::cout << "\tInvalid values!! Please enter the row and column values again." << std::endl << std::endl;
 		else
 			isCorrectInput = true;
 	}
 
-	playBoard.setCellValue(row - 1, column - 1, this->m_Symbol);
+	playBoard.SetCellValue(row - 1, column - 1, this->m_Symbol);
 }
