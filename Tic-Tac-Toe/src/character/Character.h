@@ -24,6 +24,6 @@ public:
 	virtual ~Character();
 
 	//To perform the character action
-	virtual void performAction() const = 0;
+	virtual void PerformAction() const = 0;
 };
 

@@ -11,6 +11,6 @@ public:
 	~Player();
 
 	//To perform the player action
-	void performAction() const override;
+	void PerformAction() const override;
 };
 

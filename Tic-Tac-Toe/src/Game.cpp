@@ -23,41 +23,41 @@ Game::Game(GameType gameType)
 	isPlayer1Turn = true;
 }
 
-bool Game::isMovePossible() const
+bool Game::IsMovePossible() const
 {
-	return board->isMovePossible();
+	return board->IsMovePossible();
 }
 
-bool Game::checkDraw()
+bool Game::CheckDraw()
 {
-	if (isMovePossible())
+	if (IsMovePossible())
 		return false;
 
-	if (!hasWon(player1->m_Symbol) && !hasWon(player2->m_Symbol))
+	if (!HasWon(player1->m_Symbol) && !HasWon(player2->m_Symbol))
 		return isOver = true;
 
 	return false;
 }
 
-bool Game::hasWon()
+bool Game::HasWon()
 {
-	return hasWon(currentPlayer->m_Symbol);
+	return HasWon(currentPlayer->m_Symbol);
 }
 
-bool Game::hasWon(const char symbol)
+bool Game::HasWon(const char symbol)
 {
-	return isOver = board->checkWinCondition(symbol);
+	return isOver = board->CheckWinCondition(symbol);
 }
 
-bool Game::hasWon(const Character *player)
+bool Game::HasWon(const Character *player)
 {
-	return hasWon(player->m_Symbol);
+	return HasWon(player->m_Symbol);
 }
 
-void Game::restartGame()
+void Game::RestartGame()
 {
 	//Reset the board
-	board->reset();
+	board->Reset();
 
 	currentPlayer = player1;
 	isPlayer1Turn = true;
@@ -65,15 +65,15 @@ void Game::restartGame()
 	isOver = false;
 }
 
-void Game::changeCurrentPlayer()
+void Game::ChangeCurrentPlayer()
 {
 	isPlayer1Turn = !isPlayer1Turn;
 	currentPlayer = isPlayer1Turn ? player1 : player2;
 }
 
-void Game::displayGameBoard() const
+void Game::DisplayGameBoard() const
 {
-	board->display();
+	board->Display();
 }
 
 Game::~Game()

@@ -17,27 +17,27 @@ public:
 	~Board();
 
 	//Reset the board
-	void reset();
+	void Reset();
 
 	//Display the board
-	void display();
+	void Display();
 
 	//Check if there is any empty cell on the board
-	bool isMovePossible() const;
+	bool IsMovePossible() const;
 
 	//Check if the board has three 'symbols' in a row or a column or a diagonal
-	bool checkWinCondition(const char symbol) const;
+	bool CheckWinCondition(const char symbol) const;
 
 	//To get the char at row and column indices on the board
-	const char getCellValue(int row, int column) const;
+	const char GetCellValue(int row, int column) const;
 
 	//To set symbol at row and column indices on the board
-	void setCellValue(int row, int column, char symbol);
+	void SetCellValue(int row, int column, char symbol);
 
 	//To check if the board is empty or not
-	bool isEmpty() const;
+	bool IsEmpty() const;
 
 	//To check if the specified cell is empty on the board
-	bool isEmpty(int row, int column) const;
+	bool IsEmpty(int row, int column) const;
 };
 

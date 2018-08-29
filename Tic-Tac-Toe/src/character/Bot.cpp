@@ -10,31 +10,31 @@ Bot::~Bot()
 {
 }
 
-void Bot::performAction() const
+void Bot::PerformAction() const
 {
-	if (this->playBoard.isEmpty())
+	if (this->playBoard.IsEmpty())
 	{
-		this->playBoard.setCellValue(0, 0, this->m_Symbol);
+		this->playBoard.SetCellValue(0, 0, this->m_Symbol);
 		return;
 	}
 
 	int value = 0;
-	std::pair<int, int> nextMove = getNextOptimalMove(0, true, value);
+	std::pair<int, int> nextMove = GetNextOptimalMove(0, true, value);
 	
 	if (nextMove.first == -1 || nextMove.second == -1)
 		return;
 
-	playBoard.setCellValue(nextMove.first, nextMove.second, this->m_Symbol);
+	playBoard.SetCellValue(nextMove.first, nextMove.second, this->m_Symbol);
 }
 
-int Bot::evaluationFunction() const
+int Bot::EvaluationFunction() const
 {
 	//Check if the bot has won
-	if (playBoard.checkWinCondition(this->m_Symbol))
+	if (playBoard.CheckWinCondition(this->m_Symbol))
 		return rewardValue;
 
 	//Check if the opponent has won
-	else if (playBoard.checkWinCondition(this->m_oppSymbol))
+	else if (playBoard.CheckWinCondition(this->m_oppSymbol))
 		return -rewardValue;
 
 	//If non has won or its a draw
@@ -42,13 +42,13 @@ int Bot::evaluationFunction() const
 		return 0;
 }
 
-std::pair<int, int> Bot::getNextOptimalMove(int moves, bool botsTurn, int& value) const
+std::pair<int, int> Bot::GetNextOptimalMove(int moves, bool botsTurn, int& value) const
 {
 	//BestValue will have the minimum or the maximum value (at the end) depending upon whether it is the opponent's turn or the bot's turn
 	int bestValue = botsTurn ? INT_MIN : INT_MAX;
 
 	//Get the value of the current board state
-	int eval = evaluationFunction();
+	int eval = EvaluationFunction();
 
 	//If bot has won, return the boardValue - moves used to get there
 	if (eval > 0)
@@ -74,14 +74,14 @@ std::pair<int, int> Bot::getNextOptimalMove(int moves, bool botsTurn, int& value
 	{
 		for (int j = 0; j < this->playBoard.BOARD_SIZE; j++)
 		{
-			if(this->playBoard.getCellValue(i, j) != '-')
+			if(this->playBoard.GetCellValue(i, j) != '-')
 				continue;
 
 			//Set the current player's symbol on the board and set the value back to its initial value
-			this->playBoard.setCellValue(i, j, botsTurn ? this->m_Symbol : this->m_oppSymbol);
+			this->playBoard.SetCellValue(i, j, botsTurn ? this->m_Symbol : this->m_oppSymbol);
 			value = tempValue;
 
-			getNextOptimalMove(moves + 1, !botsTurn, value);
+			GetNextOptimalMove(moves + 1, !botsTurn, value);
 
 			//If it is opponent's turn and the value after the above move is less than the bestValue (Because the opponent is the minimizer)
 			if (!botsTurn && value < bestValue)
@@ -100,7 +100,7 @@ std::pair<int, int> Bot::getNextOptimalMove(int moves, bool botsTurn, int& value
 			}
 
 			//Remove the above from the board
-			this->playBoard.setCellValue(i, j, '-');
+			this->playBoard.SetCellValue(i, j, '-');
 		}
 	}
 	value = bestValue;
