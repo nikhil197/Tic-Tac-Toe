@@ -4,20 +4,18 @@
 #include <Windows.h>
 
 #include "Game.h"
+#include "GameManager.h"
 
 #define LOG(x) std::cout << x << std::endl;
 
 int main()
 {
 	bool quit = false;
-	bool newGame = true;
 
 	while (!quit)
-	{
-		Game *game = nullptr;
-	
+	{	
 		//Game type selection
-		std::cout << std::endl << std::endl;
+		LOG("\n");
 		LOG("\tWelcome to Tic-Tac-Toe");
 		LOG("\tSelect game Type: ");
 		LOG("\t1. Single Player (Play against a bot).");
@@ -39,7 +37,7 @@ int main()
 			continue;
 		}
 
-		game = new Game(gameType);
+		GameManager game(new Game(gameType));
 		
 		if (game == nullptr)
 		{
@@ -106,8 +104,6 @@ int main()
 				}
 			}
 		}
-		
-		delete game;
 	}
 
 	std::cin.get();
